@@ -9,10 +9,19 @@ import SwiftUI
 
 struct PastTestsScreen: View {
     var body: some View {
-        Text("This is the Test Library!")
+        NavigationStack {
+            VStack (spacing:10){
+                Text("Test Library")
+                    .bold()
+                    .fontWeight(.heavy)
+                    .font(.system(size: 50))
+            }
+            .padding(20)
+            }
     }
 }
 
 #Preview {
     PastTestsScreen()
 }
+

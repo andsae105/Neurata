@@ -9,10 +9,19 @@ import SwiftUI
 
 struct DataScreen: View {
     var body: some View {
-        Text("This is the Data Screen!")
+        NavigationStack {
+            VStack (spacing:10){
+                Text("Data")
+                    .bold()
+                    .fontWeight(.heavy)
+                    .font(.system(size: 50))
+            }
+            .padding(20)
+            }
     }
 }
 
 #Preview {
     DataScreen()
 }
+
