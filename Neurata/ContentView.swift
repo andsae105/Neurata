@@ -14,19 +14,20 @@ struct ContentView: View {
                 HomeScreen()
             }
             Tab("Data", systemImage: "chart.bar") {
-                DataScreen()
+                DashboardAndLibraryView()
             }
             Tab("Test Library", systemImage: "book") {
-                PastTestsScreen()
+                DashboardAndLibraryView()
             }
         }
     }
 }
 
-
 #Preview {
     ContentView()
+        .environment(AppDataManager()) // Fixes the crash for this preview
 }
+
 
 
 

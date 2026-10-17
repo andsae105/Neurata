@@ -20,8 +20,8 @@ struct DisclaimerScreen: View {
                     .font(.system(size: 20))
                 Text("This test's only purpose is to test cognitivity, which include your memory, attention, and reaction time.")
                 Text("")
-                NavigationLink("New Test"){
-                    NewTestScreen()
+                NavigationLink("Begin"){
+                    StroopTestView()
                 }
                     .safeAreaPadding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .background(.blue, in: RoundedRectangle(cornerRadius: 12))
