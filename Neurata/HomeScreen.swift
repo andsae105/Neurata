@@ -16,7 +16,7 @@ struct HomeScreen: View {
                     .fontWeight(.heavy)
                     .font(.system(size: 75))
                 NavigationLink("New Test"){
-                    DisclaimerScreen()
+                    ChooseScreen()
                 }
                     .safeAreaPadding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .background(.blue, in: RoundedRectangle(cornerRadius: 12))
