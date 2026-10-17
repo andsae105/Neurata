@@ -21,7 +21,7 @@ struct DisclaimerScreen: View {
                 Text("This test's only purpose is to test cognitivity, which include your memory, attention, and reaction time.")
                     .multilineTextAlignment(.center)
                 Text("")
-                Text("This test does not indicate how inteligent you are or abilities that you're capable of, and strictly only tests how well you are able to perform specific tasks.")
+                Text("This test does not indicate how inteligent you are or abilities that you're capable of, and strictly only tests how well you're able to perform specific tasks. ")
                     .multilineTextAlignment(.center)
                 NavigationLink("I Understand - Begin Test"){
                     NewTestScreen()
