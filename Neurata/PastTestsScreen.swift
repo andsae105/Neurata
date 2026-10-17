@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PastTestsScreen: View {
     var body: some View {
-        Text("This is the Past Tests Screen!")
+        Text("This is the Test Library!")
     }
 }
 

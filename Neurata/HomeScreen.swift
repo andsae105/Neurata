@@ -15,7 +15,8 @@ struct HomeScreen: View {
                     .bold()
                     .fontWeight(.heavy)
                     .font(.system(size: 75))
-                Button("New Test"){                   /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                NavigationLink("New Test"){
+                    NewTestScreen()
                 }
                     .safeAreaPadding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .background(.blue, in: RoundedRectangle(cornerRadius: 12))
