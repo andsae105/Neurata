@@ -27,7 +27,7 @@ enum StroopColor: String, CaseIterable, Codable {
 struct StroopResult: Identifiable, Codable {
     var id = UUID()
     let date: Date
-    let testName: String = "Stroop Test"
+    var testName: String = "Stroop Test"
     let score: Int
     let totalQuestions: Int
     let averageResponseTime: TimeInterval
