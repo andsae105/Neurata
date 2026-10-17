@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct NewTestScreen: View {
+struct ChooseScreen: View {
     var body: some View {
-        Text("Test Screen!")
+        Text("Choose Test!")
     }
 }
 
 #Preview {
-    NewTestScreen()
+    ChooseScreen()
 }
