@@ -18,7 +18,9 @@ struct ContentView: View {
                 Button("New Test"){                   /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                 }
                     .safeAreaPadding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
+                    .background(.blue, in: RoundedRectangle(cornerRadius: 12))
+                    .backgroundStyle(.orange)
+                    .foregroundStyle(.white)
             }
             .padding(20)
             .toolbar {
