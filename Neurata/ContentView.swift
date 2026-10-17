@@ -14,10 +14,10 @@ struct ContentView: View {
                 HomeScreen()
             }
             Tab("Data", systemImage: "chart.bar") {
-                DashboardAndLibraryView()
+                ResultsDashboardView()
             }
             Tab("Test Library", systemImage: "book") {
-                DashboardAndLibraryView()
+                TestLibraryView()
             }
         }
     }

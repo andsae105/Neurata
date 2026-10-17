@@ -20,7 +20,7 @@ struct StroopTestView: View {
     @State private var questionStartTime: Date = Date()
     @State private var totalReactionTime: TimeInterval = 0.0
     
-    let maxQuestions = 20
+    let maxQuestions = 40
     
     // Strict 2x2 Layout parameters
     let columns = [
@@ -71,7 +71,7 @@ struct StroopTestView: View {
                             .foregroundColor(fontColor.displayColor)
                         
                         VStack(spacing: 8) {
-                            Text("Tap the color of the FONT, ignore the word!")
+                            Text("Tap the text color, ignore the word")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                                 .multilineTextAlignment(.center)

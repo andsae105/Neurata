@@ -6,110 +6,136 @@
 //
 
 import SwiftUI
+import Charts
 
-struct DashboardAndLibraryView: View {
+struct ResultsDashboardView: View {
     @Environment(AppDataManager.self) private var dataManager
     
-    // UI Computations for Dashboard
-    private var averageAccuracy: Double {
+    // Performance Calculations
+    var averageAccuracy: Double {
         guard !dataManager.testResults.isEmpty else { return 0.0 }
         let totalScore = dataManager.testResults.reduce(0) { $0 + $1.score }
         let totalQuestions = dataManager.testResults.reduce(0) { $0 + $1.totalQuestions }
         return (Double(totalScore) / Double(totalQuestions)) * 100
     }
     
-    private var grandAverageReactionTime: TimeInterval {
+    var overallAverageTime: TimeInterval {
         guard !dataManager.testResults.isEmpty else { return 0.0 }
-        let sum = dataManager.testResults.reduce(0.0) { $0 + $1.averageResponseTime }
-        return sum / Double(dataManager.testResults.count)
+        let sumTime = dataManager.testResults.reduce(0.0) { $0 + $1.averageResponseTime }
+        return sumTime / Double(dataManager.testResults.count)
     }
-
+    
     var body: some View {
         NavigationStack {
-            List {
-                // SECTION 1: COMPREHENSIVE DATA METRICS
-                Section(header: Text("Analytics Dashboard")) {
-                    if dataManager.testResults.isEmpty {
-                        Text("No data profiles recorded yet. Complete a Stroop test to generate insights.")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .padding(.vertical, 8)
-                    } else {
-                        VStack(alignment: .leading, spacing: 14) {
-                            HStack {
-                                Text("Total Runs Saved:")
-                                    .bold()
-                                Spacer()
-                                Text("\(dataManager.testResults.count)")
-                            }
+            ScrollView {
+                if dataManager.testResults.isEmpty {
+                    ContentUnavailableView(
+                        "No Data Available",
+                        systemImage: "chart.xyaxis.line",
+                        description: Text("Complete tests to populate trends, historical charts, and cognitive summaries.")
+                    )
+                    .padding(.top, 40)
+                } else {
+                    VStack(spacing: 24) {
+                        // High-Level Lifetime Metric Highlights
+                        HStack(spacing: 16) {
+                            DashboardMetricCard(
+                                title: "Lifetime Accuracy",
+                                value: String(format: "%.1f%%", averageAccuracy),
+                                subtitle: "\(dataManager.testResults.count) tests logged",
+                                icon: "checkmark.circle.fill",
+                                color: .green
+                            )
                             
-                            HStack {
-                                Text("Global Avg Accuracy:")
-                                    .bold()
-                                Spacer()
-                                Text(String(format: "%.1f%%", averageAccuracy))
-                                    .foregroundColor(.blue)
-                            }
-                            
-                            HStack {
-                                Text("Global Response Speed:")
-                                    .bold()
-                                Spacer()
-                                Text(String(format: "%.0f ms", grandAverageReactionTime * 1000))
-                                    .foregroundColor(.purple)
-                                    .font(.system(.body, design: .monospaced))
-                            }
+                            DashboardMetricCard(
+                                title: "Avg Reaction Time",
+                                value: String(format: "%.0f ms", overallAverageTime * 1000),
+                                subtitle: "Lower is faster",
+                                icon: "bolt.fill",
+                                color: .purple
+                            )
                         }
-                        .padding(.vertical, 6)
-                    }
-                }
-                
-                // SECTION 2: TEST LIBRARY HISTORY
-                Section(header: Text("Historical Test Library")) {
-                    if dataManager.testResults.isEmpty {
-                        Text("Library empty.")
-                            .foregroundColor(.secondary)
-                    } else {
-                        ForEach(dataManager.testResults) { result in
-                            VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    Text("\(result.formattedDate) — \(result.testName)")
-                                        .font(.subheadline)
-                                        .bold()
-                                    Spacer()
-                                    Text("Acc: \(Int((Double(result.score) / Double(result.totalQuestions)) * 100))%")
-                                        .font(.caption)
-                                        .bold()
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 4)
-                                        .background(Color.blue.opacity(0.1))
-                                        .cornerRadius(6)
+                        .padding(.horizontal)
+                        
+                        // Performance Timeline Chart
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Accuracy Trends Over Time")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            
+                            Chart {
+                                ForEach(dataManager.testResults.reversed()) { result in
+                                    let percentage = (Double(result.score) / Double(result.totalQuestions)) * 100
+                                    
+                                    LineMark(
+                                        x: .value("Date", result.formattedDate),
+                                        y: .value("Accuracy", percentage)
+                                    )
+                                    .interpolationMethod(.catmullRom)
+                                    .foregroundStyle(Color.blue.gradient)
+                                    .lineStyle(StrokeStyle(lineWidth: 3))
+                                    
+                                    PointMark(
+                                        x: .value("Date", result.formattedDate),
+                                        y: .value("Accuracy", percentage)
+                                    )
+                                    .foregroundStyle(.blue)
                                 }
-                                
-                                Text(String(format: "Avg Speed: %.0f ms", result.averageResponseTime * 1000))
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                
-                                // Integrated Inline Tagline Binding Setup
-                                TextField("Add description (e.g., 'the day I felt sick')", text: Binding(
-                                    get: { result.tagline },
-                                    set: { newTagline in
-                                        if let targetIndex = dataManager.testResults.firstIndex(where: { $0.id == result.id }) {
-                                            dataManager.testResults[targetIndex].tagline = newTagline
-                                        }
-                                    }
-                                ))
-                                .font(.caption)
-                                .textFieldStyle(.roundedBorder)
                             }
-                            .padding(.vertical, 6)
+                            .frame(height: 220)
+                            .chartYScale(domain: 0...100)
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(16)
+                            .padding(.horizontal)
                         }
                     }
+                    .padding(.vertical)
                 }
             }
-            .navigationTitle("Cognitive Data Hub")
+            .navigationTitle("Analytics View")
         }
     }
 }
 
+// Reusable Metric Graphic Card Components
+struct DashboardMetricCard: View {
+    let title: String
+    let value: String
+    let subtitle: String
+    let icon: String
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Image(systemName: icon)
+                    .foregroundColor(color)
+                Text(title)
+                    .font(.caption)
+                    .bold()
+                    .foregroundColor(.secondary)
+            }
+            Text(value)
+                .font(.title).bold()
+            Text(subtitle)
+                .font(.caption2)
+                .foregroundColor(.gray)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(Color(.secondarySystemBackground))
+        .cornerRadius(16)
+    }
+}
 
+// Preview Engine Fix
+#Preview {
+    let mockManager = AppDataManager()
+    mockManager.testResults = [
+        StroopResult(date: Date().addingTimeInterval(-172800), score: 12, totalQuestions: 20, averageResponseTime: 0.950),
+        StroopResult(date: Date().addingTimeInterval(-86400), score: 16, totalQuestions: 20, averageResponseTime: 0.720),
+        StroopResult(date: Date(), score: 19, totalQuestions: 20, averageResponseTime: 0.580)
+    ]
+    return ResultsDashboardView().environment(mockManager)
+}
