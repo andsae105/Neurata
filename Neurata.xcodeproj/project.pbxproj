@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		04CC60F33083151B008FF71A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04CC60DD3083151A008FF71A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04CC60E43083151A008FF71A;
+			remoteInfo = Neurata;
+		};
+		04CC60FD3083151B008FF71A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04CC60DD3083151A008FF71A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04CC60E43083151A008FF71A;
+			remoteInfo = Neurata;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04CC60E53083151A008FF71A /* Neurata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neurata.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CC60F23083151B008FF71A /* NeurataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeurataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CC60FC3083151B008FF71A /* NeurataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeurataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		04CC60E73083151A008FF71A /* Neurata */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Neurata;
+			sourceTree = "<group>";
+		};
+		04CC60F53083151B008FF71A /* NeurataTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeurataTests;
+			sourceTree = "<group>";
+		};
+		04CC60FF3083151B008FF71A /* NeurataUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeurataUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04CC60E23083151A008FF71A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		04CC60EF3083151B008FF71A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		04CC60F93083151B008FF71A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04CC60DC3083151A008FF71A = {
+			isa = PBXGroup;
+			children = (
+				04CC60E73083151A008FF71A /* Neurata */,
+				04CC60F53083151B008FF71A /* NeurataTests */,
+				04CC60FF3083151B008FF71A /* NeurataUITests */,
+				04CC60E63083151A008FF71A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04CC60E63083151A008FF71A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04CC60E53083151A008FF71A /* Neurata.app */,
+				04CC60F23083151B008FF71A /* NeurataTests.xctest */,
+				04CC60FC3083151B008FF71A /* NeurataUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04CC60E43083151A008FF71A /* Neurata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CC61043083151B008FF71A /* Build configuration list for PBXNativeTarget "Neurata" */;
+			buildPhases = (
+				04CC60E13083151A008FF71A /* Sources */,
+				04CC60E23083151A008FF71A /* Frameworks */,
+				04CC60E33083151A008FF71A /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				04CC60E73083151A008FF71A /* Neurata */,
+			);
+			name = Neurata;
+			productName = Neurata;
+			productReference = 04CC60E53083151A008FF71A /* Neurata.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04CC60F13083151B008FF71A /* NeurataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CC61073083151B008FF71A /* Build configuration list for PBXNativeTarget "NeurataTests" */;
+			buildPhases = (
+				04CC60EE3083151B008FF71A /* Sources */,
+				04CC60EF3083151B008FF71A /* Frameworks */,
+				04CC60F03083151B008FF71A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04CC60F43083151B008FF71A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				04CC60F53083151B008FF71A /* NeurataTests */,
+			);
+			name = NeurataTests;
+			productName = NeurataTests;
+			productReference = 04CC60F23083151B008FF71A /* NeurataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04CC60FB3083151B008FF71A /* NeurataUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CC610A3083151B008FF71A /* Build configuration list for PBXNativeTarget "NeurataUITests" */;
+			buildPhases = (
+				04CC60F83083151B008FF71A /* Sources */,
+				04CC60F93083151B008FF71A /* Frameworks */,
+				04CC60FA3083151B008FF71A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04CC60FE3083151B008FF71A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				04CC60FF3083151B008FF71A /* NeurataUITests */,
+			);
+			name = NeurataUITests;
+			productName = NeurataUITests;
+			productReference = 04CC60FC3083151B008FF71A /* NeurataUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04CC60DD3083151A008FF71A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					04CC60E43083151A008FF71A = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					04CC60F13083151B008FF71A = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = 04CC60E43083151A008FF71A;
+					};
+					04CC60FB3083151B008FF71A = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = 04CC60E43083151A008FF71A;
+					};
+				};
+			};
+			buildConfigurationList = 04CC60E03083151A008FF71A /* Build configuration list for PBXProject "Neurata" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04CC60DC3083151A008FF71A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 04CC60E63083151A008FF71A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04CC60E43083151A008FF71A /* Neurata */,
+				04CC60F13083151B008FF71A /* NeurataTests */,
+				04CC60FB3083151B008FF71A /* NeurataUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04CC60E33083151A008FF71A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		04CC60F03083151B008FF71A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		04CC60FA3083151B008FF71A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04CC60E13083151A008FF71A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		04CC60EE3083151B008FF71A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		04CC60F83083151B008FF71A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04CC60F43083151B008FF71A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04CC60E43083151A008FF71A /* Neurata */;
+			targetProxy = 04CC60F33083151B008FF71A /* PBXContainerItemProxy */;
+		};
+		04CC60FE3083151B008FF71A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04CC60E43083151A008FF71A /* Neurata */;
+			targetProxy = 04CC60FD3083151B008FF71A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04CC61023083151B008FF71A /* Debug configuration for PBXProject "Neurata" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04CC61033083151B008FF71A /* Release configuration for PBXProject "Neurata" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04CC61053083151B008FF71A /* Debug configuration for PBXNativeTarget "Neurata" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Refract.Neurata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04CC61063083151B008FF71A /* Release configuration for PBXNativeTarget "Neurata" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Refract.Neurata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04CC61083083151B008FF71A /* Debug configuration for PBXNativeTarget "NeurataTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Refract.NeurataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Neurata.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Neurata";
+			};
+			name = Debug;
+		};
+		04CC61093083151B008FF71A /* Release configuration for PBXNativeTarget "NeurataTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Refract.NeurataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Neurata.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Neurata";
+			};
+			name = Release;
+		};
+		04CC610B3083151B008FF71A /* Debug configuration for PBXNativeTarget "NeurataUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Refract.NeurataUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Neurata;
+			};
+			name = Debug;
+		};
+		04CC610C3083151B008FF71A /* Release configuration for PBXNativeTarget "NeurataUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Refract.NeurataUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Neurata;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04CC60E03083151A008FF71A /* Build configuration list for PBXProject "Neurata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CC61023083151B008FF71A /* Debug configuration for PBXProject "Neurata" */,
+				04CC61033083151B008FF71A /* Release configuration for PBXProject "Neurata" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		04CC61043083151B008FF71A /* Build configuration list for PBXNativeTarget "Neurata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CC61053083151B008FF71A /* Debug configuration for PBXNativeTarget "Neurata" */,
+				04CC61063083151B008FF71A /* Release configuration for PBXNativeTarget "Neurata" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		04CC61073083151B008FF71A /* Build configuration list for PBXNativeTarget "NeurataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CC61083083151B008FF71A /* Debug configuration for PBXNativeTarget "NeurataTests" */,
+				04CC61093083151B008FF71A /* Release configuration for PBXNativeTarget "NeurataTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		04CC610A3083151B008FF71A /* Build configuration list for PBXNativeTarget "NeurataUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CC610B3083151B008FF71A /* Debug configuration for PBXNativeTarget "NeurataUITests" */,
+				04CC610C3083151B008FF71A /* Release configuration for PBXNativeTarget "NeurataUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04CC60DD3083151A008FF71A /* Project object */;
+	validationLevel = 1;
+}
