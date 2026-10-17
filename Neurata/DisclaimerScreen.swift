@@ -23,7 +23,7 @@ struct DisclaimerScreen: View {
                 Text("")
                 Text("This test does not indicate how inteligent you are or abilities that you're capable of, and strictly only tests how well you're able to perform specific tasks. ")
                     .multilineTextAlignment(.center)
-                NavigationLink("I Understand - Begin Test"){
+                NavigationLink("I Understand - Choose Test"){
                     NewTestScreen()
                 }
                     .safeAreaPadding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
