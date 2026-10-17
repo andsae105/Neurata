@@ -28,6 +28,9 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {}) {
+                        Image(systemName: "house")
+                    }
+                    Button(action: {}) {
                         Image(systemName: "chart.bar")
                     }
                     Button(action: {}) {
