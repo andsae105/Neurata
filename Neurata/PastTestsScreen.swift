@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct PastTests: View {
+struct PastTestsScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("This is the Past Tests Screen!")
     }
 }
 
 #Preview {
-    PastTests()
+    PastTestsScreen()
 }
