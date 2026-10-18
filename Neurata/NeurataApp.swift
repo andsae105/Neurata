@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct NeurataApp: App {
+    @State private var dataManager = AppDataManager()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(dataManager)
         }
     }
 }
+

@@ -25,7 +25,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(AppDataManager()) // Fixes the crash for this preview
+        .environment(AppDataManager())
 }
 
 

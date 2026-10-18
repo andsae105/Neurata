@@ -18,16 +18,13 @@ struct StroopTestView: View {
     @State private var totalReactionTime: TimeInterval = 0.0
     
     let maxQuestions = 10
-    
     let columns = [
         GridItem(.flexible(), spacing: 20),
         GridItem(.flexible(), spacing: 20)
     ]
-    
     var body: some View {
         VStack(spacing: 30) {
             if isGameOver {
-
                 VStack(spacing: 24) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 80))

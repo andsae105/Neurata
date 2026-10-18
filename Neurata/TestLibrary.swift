@@ -26,7 +26,7 @@ struct TestLibraryView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if dataManager.testResults.isEmpty {
+                if dataManager.testResults.isEmpty && dataManager.corsiResults.isEmpty { 
                     ContentUnavailableView(
                         "No Tests Taken Yet",
                         systemImage: "list.bullet.clipboard",
@@ -34,9 +34,39 @@ struct TestLibraryView: View {
                     )
                 } else {
                     List {
+                        ForEach(dataManager.corsiResults) { result in
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Corsi Memory Test")
+                                    .font(.headline)
+
+                                Text(result.formattedDate)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text("Maximum Memory Span")
+                                            .font(.subheadline)
+
+                                        Text("Correct Sequences: \(result.correctTrials)/\(result.totalTrials)")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
+
+                                    Spacer()
+
+                                    Text("\(result.memorySpan) Blocks")
+                                        .font(.title3)
+                                        .bold()
+                                        .foregroundColor(.blue)
+                                }
+                            }
+                            .padding(.vertical, 8)
+                        }
+
                         ForEach(filteredResults) { result in
                             VStack(alignment: .leading, spacing: 10) {
-                                // Row Header
+                                
                                 HStack {
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text("\(result.formattedDate) \(result.testName)")
@@ -51,7 +81,7 @@ struct TestLibraryView: View {
                                     Text("\(Int((Double(result.score) / Double(result.totalQuestions)) * 100))%")
                                         .font(.title3)
                                         .bold()
-                                        .foregroundColor(accuracyColor(for: result.score))
+                                        .foregroundColor(accuracyColor(for: result.score, total: result.totalQuestions))
                                 }
                                 
                                 VStack(alignment: .leading, spacing: 4) {
@@ -82,8 +112,8 @@ struct TestLibraryView: View {
         }
     }
     
-    private func accuracyColor(for score: Int) -> Color {
-        let percentage = Double(score) / 20.0
+    private func accuracyColor(for score: Int, total: Int) -> Color {
+        let percentage = Double(score) / Double(total)
         if percentage >= 0.85 { return .green }
         if percentage >= 0.65 { return .orange }
         return .red

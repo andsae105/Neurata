@@ -39,6 +39,21 @@ struct StroopResult: Identifiable, Codable {
     }
 }
 
+struct CorsiResult: Identifiable, Codable {
+    var id = UUID()
+    let date: Date
+    let memorySpan: Int
+    let correctTrials: Int
+    let totalTrials: Int
+
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        return formatter.string(from: date)
+    }
+}
+
+
 @Observable
 class AppDataManager {
     var testResults: [StroopResult] = [] {
@@ -49,11 +64,12 @@ class AppDataManager {
     
     init() {
         loadResults()
+        loadCorsiResults()
     }
     
     func addResult(score: Int, total: Int, avgTime: TimeInterval) {
         let newResult = StroopResult(date: Date(), score: score, totalQuestions: total, averageResponseTime: avgTime)
-        testResults.insert(newResult, at: 0) // Newest tests appear at the top
+        testResults.insert(newResult, at: 0)
     }
     
     private func saveResults() {
@@ -68,5 +84,47 @@ class AppDataManager {
             self.testResults = decoded
         }
     }
+    
+    var corsiResults: [CorsiResult] = [] {
+        didSet {
+            saveCorsiResults()
+        }
+    }
+
+    func addCorsiResult(span: Int, correct: Int, total: Int) {
+        let result = CorsiResult(
+            date: Date(),
+            memorySpan: span,
+            correctTrials: correct,
+            totalTrials: total
+        )
+
+        corsiResults.insert(result, at: 0)
+    }
+
+    private func saveCorsiResults() {
+        do {
+            let data = try JSONEncoder().encode(corsiResults)
+            UserDefaults.standard.set(data, forKey: "CorsiResults")
+        } catch {
+            print("Could not save Corsi results")
+        }
+    }
+
+    private func loadCorsiResults() {
+        guard let data = UserDefaults.standard.data(forKey: "CorsiResults") else {
+            return
+        }
+
+        do {
+            corsiResults = try JSONDecoder().decode(
+                [CorsiResult].self,
+                from: data
+            )
+        } catch {
+            print("Could not load Corsi results")
+        }
+    }
+
 }
 
