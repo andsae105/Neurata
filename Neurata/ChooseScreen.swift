@@ -64,7 +64,7 @@ struct ChooseScreen: View {
                 )
                 .overlay(alignment: .bottomTrailing) {
                     NavigationLink("Start Test →") {
-                        Text("Attention Test")
+                        ReactionTimeTestView()
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.trailing, 40)
