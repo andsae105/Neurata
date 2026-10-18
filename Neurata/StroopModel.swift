@@ -6,7 +6,6 @@
 //
 import SwiftUI
 
-// 1. Color Data Model
 enum StroopColor: String, CaseIterable, Codable {
     case red = "RED"
     case blue = "BLUE"
@@ -40,7 +39,6 @@ struct StroopResult: Identifiable, Codable {
     }
 }
 
-// 3. Central Shared Data Engine
 @Observable
 class AppDataManager {
     var testResults: [StroopResult] = [] {

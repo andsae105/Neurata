@@ -9,20 +9,16 @@ import SwiftUI
 struct StroopTestView: View {
     @Environment(AppDataManager.self) private var dataManager
     
-    // Core Gameplay State
     @State private var textWord: StroopColor = .red
     @State private var fontColor: StroopColor = .blue
     @State private var totalAttempts: Int = 0
     @State private var score: Int = 0
     @State private var isGameOver: Bool = false
-    
-    // Time Analytics Tracking
     @State private var questionStartTime: Date = Date()
     @State private var totalReactionTime: TimeInterval = 0.0
     
-    let maxQuestions = 40
+    let maxQuestions = 10
     
-    // Strict 2x2 Layout parameters
     let columns = [
         GridItem(.flexible(), spacing: 20),
         GridItem(.flexible(), spacing: 20)
@@ -31,7 +27,7 @@ struct StroopTestView: View {
     var body: some View {
         VStack(spacing: 30) {
             if isGameOver {
-                // Completed State Screen
+
                 VStack(spacing: 24) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 80))
@@ -61,7 +57,7 @@ struct StroopTestView: View {
                 }
                 .transition(.scale)
             } else {
-                // Ongoing Gameplay Screen
+                
                 VStack {
                     Spacer()
                     
@@ -85,7 +81,6 @@ struct StroopTestView: View {
                     
                     Spacer()
                     
-                    // Large 2x2 Grid of Rounded Squares
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(StroopColor.allCases, id: \.self) { colorOption in
                             Button(action: {
@@ -148,10 +143,8 @@ struct StroopTestView: View {
         nextTurn()
     }
 }
-// ... your existing StroopTestView layout code ...
 
 #Preview {
     StroopTestView()
-        .environment(AppDataManager()) // Fixes the crash for this preview
+        .environment(AppDataManager())
 }
-

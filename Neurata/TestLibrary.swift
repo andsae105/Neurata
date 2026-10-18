@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct TestLibraryView: View {
-    // Access global storage
     @Environment(AppDataManager.self) private var dataManager
     
-    // State for local list filtering
     @State private var searchText = ""
-    
-    // Filtered results based on search bar query
     var filteredResults: [StroopResult] {
         if searchText.isEmpty {
             return dataManager.testResults
@@ -47,19 +43,17 @@ struct TestLibraryView: View {
                                             .font(.headline)
                                         Text("Avg Response: \(Int(result.averageResponseTime * 1000)) ms")
                                             .font(.subheadline)
-                                            .foregroundColor(.purple)
+                                            .foregroundColor(.blue)
                                             .monospacedDigit()
                                     }
                                     Spacer()
                                     
-                                    // Accuracy Percentage
                                     Text("\(Int((Double(result.score) / Double(result.totalQuestions)) * 100))%")
                                         .font(.title3)
                                         .bold()
                                         .foregroundColor(accuracyColor(for: result.score))
                                 }
                                 
-                                // Tagline Textfield Input
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text("Personal Note:")
                                         .font(.caption2)
@@ -88,7 +82,6 @@ struct TestLibraryView: View {
         }
     }
     
-    // Dynamic color coding based on score thresholds
     private func accuracyColor(for score: Int) -> Color {
         let percentage = Double(score) / 20.0
         if percentage >= 0.85 { return .green }
@@ -97,7 +90,6 @@ struct TestLibraryView: View {
     }
 }
 
-// Preview Engine Fix
 #Preview {
     let mockManager = AppDataManager()
     mockManager.testResults = [

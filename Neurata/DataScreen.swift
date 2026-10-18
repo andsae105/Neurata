@@ -11,7 +11,6 @@ import Charts
 struct ResultsDashboardView: View {
     @Environment(AppDataManager.self) private var dataManager
     
-    // Performance Calculations
     var averageAccuracy: Double {
         guard !dataManager.testResults.isEmpty else { return 0.0 }
         let totalScore = dataManager.testResults.reduce(0) { $0 + $1.score }
@@ -32,12 +31,11 @@ struct ResultsDashboardView: View {
                     ContentUnavailableView(
                         "No Data Available",
                         systemImage: "chart.xyaxis.line",
-                        description: Text("Complete tests to populate trends, historical charts, and cognitive summaries.")
+                        description: Text("Complete tests to access analytics")
                     )
                     .padding(.top, 40)
                 } else {
                     VStack(spacing: 24) {
-                        // High-Level Lifetime Metric Highlights
                         HStack(spacing: 16) {
                             DashboardMetricCard(
                                 title: "Lifetime Accuracy",
@@ -57,7 +55,6 @@ struct ResultsDashboardView: View {
                         }
                         .padding(.horizontal)
                         
-                        // Performance Timeline Chart
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Accuracy Trends Over Time")
                                 .font(.headline)
@@ -72,7 +69,7 @@ struct ResultsDashboardView: View {
                                         y: .value("Accuracy", percentage)
                                     )
                                     .interpolationMethod(.catmullRom)
-                                    .foregroundStyle(Color.blue.gradient)
+                                    .foregroundStyle(Color.blue)
                                     .lineStyle(StrokeStyle(lineWidth: 3))
                                     
                                     PointMark(
@@ -98,7 +95,6 @@ struct ResultsDashboardView: View {
     }
 }
 
-// Reusable Metric Graphic Card Components
 struct DashboardMetricCard: View {
     let title: String
     let value: String
@@ -129,7 +125,6 @@ struct DashboardMetricCard: View {
     }
 }
 
-// Preview Engine Fix
 #Preview {
     let mockManager = AppDataManager()
     mockManager.testResults = [

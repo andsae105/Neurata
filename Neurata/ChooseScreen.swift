@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 struct ChooseScreen: View {
     var body: some View {
         ScrollView{
@@ -84,7 +83,6 @@ struct TestBubble: View {
     let color: Color
     let color2: Color
     
-
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
@@ -109,7 +107,6 @@ struct TestBubble: View {
         .padding(.horizontal, 20)
     }
 }
-
 
 #Preview {
     NavigationStack {
