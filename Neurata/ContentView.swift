@@ -16,7 +16,7 @@ struct ContentView: View {
             Tab("Data", systemImage: "chart.bar") {
                 ResultsDashboardView()
             }
-            Tab("Test Library", systemImage: "book") {
+            Tab("Results", systemImage: "list.clipboard") {
                 TestLibraryView()
             }
         }
@@ -27,7 +27,3 @@ struct ContentView: View {
     ContentView()
         .environment(AppDataManager())
 }
-
-
-
-

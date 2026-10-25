@@ -11,7 +11,7 @@ struct HomeScreen: View {
     var body: some View {
         NavigationStack {
             VStack (spacing:10) {
-                Text("Neureta")
+                Text("Neurata")
                     .bold()
                     .fontWeight(.heavy)
                     .font(.system(size: 75))

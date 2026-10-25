@@ -14,7 +14,7 @@ struct ChooseScreen: View {
             VStack(spacing: 15) {
                 TestBubble(
                     title: "Full Assesment",
-                    subtitle: "Are you ready? Take our full assesment that covers all three categories.",
+                    subtitle: "Take our full assesment that covers all three categories",
                     color: .white,
                     color2: .red
                 )
@@ -28,7 +28,7 @@ struct ChooseScreen: View {
                 }
                 TestBubble(
                     title: "Attention Control",
-                    subtitle: "Test how well you can focus and ignore any distractions using the Stroop",
+                    subtitle: "Test how well you can focus and ignore any distractions using the Stroop test",
                     color: .white,
                     color2: .orange
                 )
@@ -43,7 +43,7 @@ struct ChooseScreen: View {
                 
                 TestBubble(
                     title: "Memory",
-                    subtitle: "Test how good your short term memory is with our Corsi Block-Tapping Test",
+                    subtitle: "Test how good your short term memory is with the Corsi Block-Tapping Test",
                     color: .white,
                     color2: .green
                 )
@@ -58,7 +58,7 @@ struct ChooseScreen: View {
                 
                 TestBubble(
                     title: "Processing Speed",
-                    subtitle: "Test your Pattern Comparison/ Reaction Time with our Simple Reaction Time Test",
+                    subtitle: "Test your Pattern Comparison with the Reaction Time Test",
                     color: .white,
                     color2: .purple
                 )

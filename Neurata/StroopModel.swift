@@ -107,7 +107,7 @@ class AppDataManager {
             let data = try JSONEncoder().encode(corsiResults)
             UserDefaults.standard.set(data, forKey: "CorsiResults")
         } catch {
-            print("Could not save Corsi results")
+            print("Could not save results")
         }
     }
 
@@ -122,7 +122,7 @@ class AppDataManager {
                 from: data
             )
         } catch {
-            print("Could not load Corsi results")
+            print("Could not load results")
         }
     }
 

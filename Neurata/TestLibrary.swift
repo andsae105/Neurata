@@ -28,9 +28,9 @@ struct TestLibraryView: View {
             Group {
                 if dataManager.testResults.isEmpty && dataManager.corsiResults.isEmpty { 
                     ContentUnavailableView(
-                        "No Tests Taken Yet",
+                        "No Tests Saved Yet",
                         systemImage: "list.bullet.clipboard",
-                        description: Text("Complete a Stroop Test to see your history logged here.")
+                        description: Text("Complete a test to see results logged here")
                     )
                 } else {
                     List {

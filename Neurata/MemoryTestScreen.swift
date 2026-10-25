@@ -18,6 +18,7 @@ struct MemoryTestScreen: View {
     ]
 
     @State private var highlightedIndex = -1
+    @State private var tappedIndex: Int? = nil
     @State private var sequence: [Int] = []
     @State private var playerSequence: [Int] = []
     @State private var sequenceLength = 2
@@ -30,41 +31,36 @@ struct MemoryTestScreen: View {
     @State private var totalTrials = 0
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 30) {
             if isGameOver {
-                Spacer()
-
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 75))
-                    .foregroundColor(.green)
-
-                Text("Test Complete!")
-                    .font(.largeTitle)
-                    .bold()
-
-                Text("Your Memory Span")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-
-                Text("\(bestSpan) Blocks")
-                    .font(.system(size: 48, weight: .black, design: .rounded))
-                    .foregroundColor(.blue)
-
-                Text("Correct sequences: \(correctTrials) of \(totalTrials)")
-                    .font(.subheadline)
-
-                Text("Your result has been saved to the Test Library.")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-
-                Button("Take Another Test") {
-                    resetGame()
+                VStack(spacing: 24) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 75))
+                        .foregroundColor(.green)
+                    
+                    Text("Test Complete")
+                        .font(.largeTitle)
+                        .bold()
+                    
+                    Text("Your results have been saved in the Test Library")
+                        .font(.body)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 30)
+                    
+                    Button(action: resetGame) {
+                        Text("Take Again")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(14)
+                    }
+                    .padding(.horizontal, 70)
+                    .padding(.top, 20)
                 }
-                .buttonStyle(.borderedProminent)
-                .padding(.top, 20)
-
-                Spacer()
+                .transition(.scale)
             } else {
                 Spacer(minLength: 10)
 
@@ -81,22 +77,30 @@ struct MemoryTestScreen: View {
 
                 ZStack {
                     ForEach(positions.indices, id: \.self) { index in
+                        let isTapped = tappedIndex == index
+                        let isHighlighted = highlightedIndex == index
+                        let isActive = isTapped || isHighlighted
+                        let outlineColor: Color = isHighlighted ? .yellow : (isTapped ? .white : .clear)
+                        let shadowColor: Color = isHighlighted ? .yellow.opacity(0.8) : (isTapped ? .cyan.opacity(0.8) : .clear)
                         RoundedRectangle(cornerRadius: 10)
                             .fill(blockColor(index))
                             .frame(width: 65, height: 65)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(outlineColor, lineWidth: 3)
+                            )
+                            .shadow(
+                                color: shadowColor,
+                                radius: 8
+                            )
+                            .scaleEffect(isActive ? 0.88 : 1.0)
                             .offset(
                                 x: positions[index].x,
                                 y: positions[index].y
                             )
+                            .animation(.spring(response: 0.25, dampingFraction: 0.6), value: isActive)
                             .onTapGesture {
-                                if isPlayingSequence == false &&
-                                    isGameOver == false {
-                                    playerSequence.append(index)
-
-                                    if playerSequence.count == sequence.count {
-                                        checkAnswer()
-                                    }
-                                }
+                                handleSquareTap(index)
                             }
                     }
                 }
@@ -118,15 +122,40 @@ struct MemoryTestScreen: View {
 
     func instructionText() -> String {
         if isPlayingSequence {
-            return "Watch the blocks light up."
+            return "Watch the blocks light up"
         } else {
-            return "Tap the blocks in the same order."
+            return "Tap the blocks in the same order"
+        }
+    }
+
+    func handleSquareTap(_ index: Int) {
+        guard !isPlayingSequence, !isGameOver else { return }
+
+        withAnimation(.spring(response: 0.2, dampingFraction: 0.6)) {
+            tappedIndex = index
+        }
+
+        Task {
+            try? await Task.sleep(for: .milliseconds(180))
+            if tappedIndex == index {
+                withAnimation(.easeOut(duration: 0.15)) {
+                    tappedIndex = nil
+                }
+            }
+        }
+
+        playerSequence.append(index)
+
+        if playerSequence.count == sequence.count {
+            checkAnswer()
         }
     }
 
     func blockColor(_ index: Int) -> Color {
         if index == highlightedIndex {
             return .yellow
+        } else if index == tappedIndex {
+            return .cyan
         } else {
             return .blue
         }
@@ -161,14 +190,20 @@ struct MemoryTestScreen: View {
             for block in sequence {
                 try Task.checkCancellation()
 
-                highlightedIndex = block
+                withAnimation(.spring(response: 0.25, dampingFraction: 0.6)) {
+                    highlightedIndex = block
+                }
                 try await Task.sleep(for: .seconds(1))
 
-                highlightedIndex = -1
+                withAnimation(.easeOut(duration: 0.2)) {
+                    highlightedIndex = -1
+                }
                 try await Task.sleep(for: .milliseconds(400))
             }
         } catch {
-            highlightedIndex = -1
+            withAnimation(.easeOut(duration: 0.2)) {
+                highlightedIndex = -1
+            }
             isPlayingSequence = false
             return
         }
@@ -212,6 +247,7 @@ struct MemoryTestScreen: View {
         isGameOver = true
         isPlayingSequence = false
         highlightedIndex = -1
+        tappedIndex = nil
 
         dataManager.addCorsiResult(
             span: bestSpan,
@@ -222,6 +258,7 @@ struct MemoryTestScreen: View {
 
     func resetGame() {
         highlightedIndex = -1
+        tappedIndex = nil
         sequenceLength = 2
         failedAttempts = 0
         bestSpan = 0
@@ -236,3 +273,4 @@ struct MemoryTestScreen: View {
     MemoryTestScreen()
         .environment(AppDataManager())
 }
+

@@ -27,21 +27,21 @@ struct StroopTestView: View {
             if isGameOver {
                 VStack(spacing: 24) {
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 80))
+                        .font(.system(size: 75))
                         .foregroundColor(.green)
                     
-                    Text("Test Complete!")
+                    Text("Test Complete")
                         .font(.largeTitle)
                         .bold()
                     
-                    Text("Your performance profile has been cataloged in your Test Library screen.")
+                    Text("Your results have been saved in the Test Library")
                         .font(.body)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 30)
                     
                     Button(action: resetGame) {
-                        Text("Take Another Test")
+                        Text("Take Again")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -49,7 +49,7 @@ struct StroopTestView: View {
                             .background(Color.blue)
                             .cornerRadius(14)
                     }
-                    .padding(.horizontal, 40)
+                    .padding(.horizontal, 70)
                     .padding(.top, 20)
                 }
                 .transition(.scale)
