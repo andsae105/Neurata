@@ -1,6 +1,5 @@
-
 //
-//  NewTestScreen.swift
+//  ChooseScreen.swift
 //  Neurata
 //
 //  Created by Ishan Karmakar on 10/17/26.
@@ -10,7 +9,7 @@ import SwiftUI
 
 struct ChooseScreen: View {
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack(spacing: 15) {
                 TestBubble(
                     title: "Full Assesment",
@@ -20,12 +19,13 @@ struct ChooseScreen: View {
                 )
                 .overlay(alignment: .bottomTrailing) {
                     NavigationLink("Start Test →") {
-                        StroopTestView()
+                        FullAssessmentView()
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.trailing, 40)
                     .padding(.bottom, 20)
                 }
+                
                 TestBubble(
                     title: "Attention Control",
                     subtitle: "Test how well you can focus and ignore any distractions using the Stroop test",
@@ -77,6 +77,7 @@ struct ChooseScreen: View {
         }
     }
 }
+
 struct TestBubble: View {
     let title: String
     let subtitle: String
@@ -92,7 +93,6 @@ struct TestBubble: View {
 
             Text(subtitle)
                 .font(.subheadline)
-
         }
         .frame(maxWidth: .infinity, minHeight: 160, alignment: .topLeading)
         .padding(20)
@@ -111,5 +111,6 @@ struct TestBubble: View {
 #Preview {
     NavigationStack {
         ChooseScreen()
+            .environment(AppDataManager())
     }
 }

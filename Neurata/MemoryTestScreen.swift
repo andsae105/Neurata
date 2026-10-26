@@ -1,9 +1,11 @@
-
 import SwiftUI
 
 @MainActor
 struct MemoryTestScreen: View {
     @Environment(AppDataManager.self) private var dataManager
+
+    var isFullAssessment: Bool = false
+    var onComplete: ((_ span: Int, _ correct: Int, _ total: Int) -> Void)? = nil
 
     let positions: [CGPoint] = [
         CGPoint(x: -90, y: -70),
@@ -36,7 +38,7 @@ struct MemoryTestScreen: View {
                 VStack(spacing: 24) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 75))
-                        .foregroundColor(.green)
+                        .foregroundColor(.blue)
                     
                     Text("Test Complete")
                         .font(.largeTitle)
@@ -249,11 +251,15 @@ struct MemoryTestScreen: View {
         highlightedIndex = -1
         tappedIndex = nil
 
-        dataManager.addCorsiResult(
-            span: bestSpan,
-            correct: correctTrials,
-            total: totalTrials
-        )
+        if isFullAssessment {
+            onComplete?(bestSpan, correctTrials, totalTrials)
+        } else {
+            dataManager.addCorsiResult(
+                span: bestSpan,
+                correct: correctTrials,
+                total: totalTrials
+            )
+        }
     }
 
     func resetGame() {
@@ -273,4 +279,3 @@ struct MemoryTestScreen: View {
     MemoryTestScreen()
         .environment(AppDataManager())
 }
-

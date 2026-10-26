@@ -4,10 +4,14 @@
 //
 //  Created by Ishan Karmakar on 10/17/26.
 //
+
 import SwiftUI
 
 struct StroopTestView: View {
     @Environment(AppDataManager.self) private var dataManager
+    
+    var isFullAssessment: Bool = false
+    var onComplete: ((_ score: Int, _ total: Int, _ avgTime: TimeInterval) -> Void)? = nil
     
     @State private var textWord: StroopColor = .red
     @State private var fontColor: StroopColor = .blue
@@ -28,7 +32,7 @@ struct StroopTestView: View {
                 VStack(spacing: 24) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 75))
-                        .foregroundColor(.green)
+                        .foregroundColor(.blue)
                     
                     Text("Test Complete")
                         .font(.largeTitle)
@@ -118,9 +122,13 @@ struct StroopTestView: View {
         
         if totalAttempts >= maxQuestions {
             let avgTime = totalReactionTime / Double(maxQuestions)
-            // Save directly into the environment
-            dataManager.addResult(score: score, total: maxQuestions, avgTime: avgTime)
-            isGameOver = true
+            if isFullAssessment {
+                onComplete?(score, maxQuestions, avgTime)
+            } else {
+                // Save directly into the environment
+                dataManager.addResult(score: score, total: maxQuestions, avgTime: avgTime)
+                isGameOver = true
+            }
         } else {
             nextTurn()
         }
