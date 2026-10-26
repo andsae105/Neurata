@@ -54,4 +54,36 @@ struct NeurataTests {
         #expect(latest?.totalTrials == 3)
     }
 
+    @Test func testInsightEngineNormalizesMetricsByCategory() {
+        let insights = InsightEngine.insights(
+            stroopResults: [
+                StroopResult(score: 18, totalQuestions: 20, averageResponseTime: 0.650)
+            ],
+            corsiResults: [
+                CorsiResult(memorySpan: 6, correctTrials: 4, totalTrials: 5)
+            ],
+            reactionResults: [
+                ReactionTimeResult(averageReactionTime: 280, fastestReactionTime: 230)
+            ],
+            fullAssessments: []
+        )
+
+        #expect(insights.count == 3)
+        #expect(insights.first(where: { $0.category == .attentionControl })?.tier == .optimal)
+        #expect(insights.first(where: { $0.category == .memory })?.tier == .average)
+        #expect(insights.first(where: { $0.category == .processingSpeed })?.tier == .optimal)
+    }
+
+    @Test func testInsightEngineUsesPlaceholderForMissingCategoryHistory() {
+        let insights = InsightEngine.insights(
+            stroopResults: [],
+            corsiResults: [],
+            reactionResults: [],
+            fullAssessments: []
+        )
+
+        #expect(insights.allSatisfy { !$0.hasData })
+        #expect(insights.allSatisfy { $0.diagnostics.isEmpty })
+    }
+
 }

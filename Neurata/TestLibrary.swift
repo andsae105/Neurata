@@ -71,8 +71,8 @@ struct TestLibraryView: View {
                    dataManager.reactionResults.isEmpty &&
                    dataManager.fullAssessmentResults.isEmpty {
                     ContentUnavailableView(
-                        "No Tests Saved Yet",
-                        systemImage: "list.bullet.clipboard",
+                        "No tests saved yet",
+                        systemImage: "list.clipboard",
                         description: Text("Complete a test to see results logged here")
                     )
                 } else {

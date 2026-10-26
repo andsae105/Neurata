@@ -304,7 +304,7 @@ struct FullAssessmentView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 70))
-                        .foregroundColor(.red)
+                        .foregroundColor(.blue)
                     
                     Text("Full Assessment Complete")
                         .font(.title)
