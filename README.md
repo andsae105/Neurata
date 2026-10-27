@@ -21,8 +21,9 @@ indicative of some level of cognitive function.
 ---
 
 ## AI-Decleration
-- AI was used in this project to be able to get us to understand basic SwiftUI. Not only that, but we found SwiftUI a bit more weirder compared to other languages, so some help was needed
-- in terms of getting to for example go to a specific screen, how to lay out the UI, and how to be able to save test data locally and retrieve that data for our Library Page.
+
+- AI was used in this project to be able to get us to understand basic SwiftUI. Not only that, but we found SwiftUI a bit more weirder compared to other languages we were used too, so some help was needed to learn its logic/style
+- It was also used in terms of how to lay out the UI, how to be able to save test data locally and retrieve that data for our Library Page, and helping us understand a way where we could shift from one screen to another.
 
 ---
 
